@@ -5,12 +5,15 @@
   --light: #fbf6ef;
 }
 
-html,
-body {
-  line-height: 1.6;
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html,
+body {
+  line-height: 1.6;
 }
 
 .App {
@@ -35,4 +38,16 @@ a:hover {
 
 section {
   margin: 2rem 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    padding: 0 5rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    padding: 0 10%;
+  }
 }

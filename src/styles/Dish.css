@@ -11,9 +11,10 @@
   background: var(--light);
 }
 
-.bg-img {
+.dish-img {
   display: inline-block;
-  padding: 4rem;
+  width: 8rem;
+  height: 7rem;
   margin-right: 1rem;
   border-radius: 8px;
 }
@@ -23,6 +24,13 @@
 }
 
 .dish-info p {
-  margin: 0;
   color: var(--third);
+  display: inline-block;
+  padding-right: 0.5rem;
+}
+
+@media only screen and (min-width: 992px) {
+  .dish {
+    justify-content: center;
+  }
 }

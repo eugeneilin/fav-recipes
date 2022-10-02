@@ -17,22 +17,27 @@ const DishPage = () => {
 
   return (
     <section id='dish-page' className='container'>
-      <div
-        className='dish-img'
-        style={{ background: `url(${dish.image}) no-repeat center / cover` }}
-      ></div>
       <div>
-        <h3>{dish.name}</h3>
-        <div>{dish.category}</div>
-        <div>{dish.timeToPrepare} minutes to prepare</div>
-        <div>
-          <h4>Ingredients</h4>
-          <ul>{displayIngredients}</ul>
+        <div
+          className='dish-page-img'
+          style={{ background: `url(${dish.image}) no-repeat center / cover` }}
+        ></div>
+        <div className='dish-page-info-lg'>
+          <h3>{dish.name}</h3>
+          <div className='tags'>
+            <p>Category: {dish.category}</p>
+            <p>{dish.timeToPrepare} minutes to prepare</p>
+            <p>Serves {dish.servesHowMany} people</p>
+          </div>
+          <div className='dish-page-info-1'>
+            <h4>Ingredients</h4>
+            <ul>{displayIngredients}</ul>
+          </div>
         </div>
-        <div>
-          <h4>Directions</h4>
-          <ol>{displayDirections}</ol>
-        </div>
+      </div>
+      <div className='dish-page-info-2'>
+        <h4>Directions</h4>
+        <ol>{displayDirections}</ol>
       </div>
     </section>
   );

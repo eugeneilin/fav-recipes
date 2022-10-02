@@ -4,3 +4,7 @@ footer {
   background: var(--secondary);
   text-align: center;
 }
+
+footer p {
+  padding: 1rem 0;
+}

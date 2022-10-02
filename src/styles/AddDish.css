@@ -1,0 +1,58 @@
+form {
+  width: 100%;
+  margin: 4rem 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem 0;
+}
+
+label {
+  padding-bottom: 0.3rem;
+}
+
+input,
+select {
+  border: 0;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--secondary);
+  outline: 0;
+  padding: 0.5rem;
+}
+
+input:focus,
+select:focus {
+  color: var(--third);
+  border-color: var(--third);
+}
+
+button#upload {
+  border: 0;
+  outline: 0;
+  padding: 3rem;
+  background: var(--light);
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+button#upload:focus {
+  border: 1px solid var(--third);
+}
+
+button.submit {
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--secondary);
+  padding: 0.5rem 2rem;
+  margin: 1rem 0;
+  background: white;
+}
+
+button.submit:hover {
+  cursor: pointer;
+  background: var(--light);
+  border: 1px solid var(--third);
+}

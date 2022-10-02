@@ -1,0 +1,28 @@
+.dish {
+  border-bottom: 1px solid var(--secondary);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1.5rem 1rem;
+}
+
+.dish:hover {
+  cursor: pointer;
+  background: var(--light);
+}
+
+.bg-img {
+  display: inline-block;
+  padding: 4rem;
+  margin-right: 1rem;
+  border-radius: 8px;
+}
+
+.dish-info h3 {
+  margin: 0;
+}
+
+.dish-info p {
+  margin: 0;
+  color: var(--third);
+}

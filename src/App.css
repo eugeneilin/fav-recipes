@@ -1,0 +1,38 @@
+:root {
+  --primary: #dce0d9;
+  --secondary: #ead7c3;
+  --third: #98a090;
+  --light: #fbf6ef;
+}
+
+html,
+body {
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh !important;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: var(--light);
+}
+
+.container {
+  padding: 0 2rem;
+}
+
+section {
+  margin: 2rem 0;
+}

@@ -1,46 +1,90 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/AddDish.css';
+import MainInfo from '../components/add-new/MainInfo';
+import Ingredients from '../components/add-new/Ingredients';
+import Directions from '../components/add-new/Directions';
+import Confirm from '../components/add-new/Confirm';
+import Added from '../components/add-new/Added';
 
 const AddDish = () => {
+  const [page, setPage] = useState(0);
+  const [formData, setFormData] = useState({
+    dishName: '',
+    dishCategory: '',
+    dishImage:
+      'https://images.pexels.com/photos/139746/pexels-photo-139746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    dishPplToServe: '',
+    dishIngredients: '',
+    dishMinToPrep: '',
+    dishDirections: '',
+  });
+
+  const FormTitles = ['Main Info', 'Ingredients', 'Directions', 'Please Confirm', 'Completed'];
+
+  const displayPage = () => {
+    if (page === 0) {
+      return <MainInfo formData={formData} setFormData={setFormData} />;
+    } else if (page === 1) {
+      return <Ingredients formData={formData} setFormData={setFormData} />;
+    } else if (page === 2) {
+      return <Directions formData={formData} setFormData={setFormData} />;
+    } else if (page === 3) {
+      return <Confirm formData={formData} />;
+    } else if (page === 4) {
+      return <Added formData={formData} />;
+    }
+  };
+
   return (
-    <section id='add-dish' className='container'>
-      <h2>Add New Dish</h2>
-      <form>
-        <div className='form-group'>
-          <label htmlFor='name'>Dish Name</label>
-          <input type='text' id='name' />
+    <section id='add-dish'>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
+        <div
+          className='progress-bar'
+          style={{
+            width:
+              page === 0
+                ? '20%'
+                : page === 1
+                ? '40%'
+                : page === 2
+                ? '60%'
+                : page === 3
+                ? '80%'
+                : '100%',
+          }}
+        ></div>
+        <div className='form-container'>
+          <h2 className='form-header'>{FormTitles[page]}</h2>
+
+          <div className='form-body'>{displayPage()}</div>
+          <div className='form-footer'>
+            <button
+              onClick={() => {
+                setPage((current) => current - 1);
+              }}
+              style={{ display: (page === 0) | (page === 4) ? 'none' : 'block' }}
+            >
+              Go Back
+            </button>
+            <button
+              onClick={() => {
+                if (page === 3) {
+                  console.log('post to api');
+                  setPage((current) => current + 1);
+                } else {
+                  setPage((current) => current + 1);
+                }
+              }}
+              style={{ display: page === 4 ? 'none' : 'block' }}
+            >
+              {page === 3 ? 'Add Dish' : 'Continue'}
+            </button>
+          </div>
         </div>
-        <div className='form-group'>
-          <label htmlFor='category'>Choose Category</label>
-          <select id='category'>
-            <option value='none'>None</option>
-            <option value='breakfast'>Breakfast</option>
-            <option value='lunch'>Lunch</option>
-            <option value='snack'>Snack</option>
-            <option value='dessert'>Dessert</option>
-          </select>
-        </div>
-        <div className='form-group'>
-          <label htmlFor='timeToPrepare'>Minutes to Prepare</label>
-          <input type='number' id='timeToPrepare' min='0' />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='servesHowMany'>Number of People to serve</label>
-          <input type='number' id='servesHowMany' min='0' />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='ingredients'>Ingredients</label>
-          <input type='text' id='ingredients' />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='directions'>Directions</label>
-          <input type='text' id='directions' />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='upload'>Upload image</label>
-          <button id='upload'>Select</button>
-        </div>
-        <button className='submit'>Add New Dish</button>
       </form>
     </section>
   );

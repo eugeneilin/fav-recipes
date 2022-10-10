@@ -11,6 +11,7 @@ const Home = () => {
         {CollectionList.map((dish, id) => {
           return (
             <Dish
+              key={id}
               id={id}
               name={dish.name}
               image={dish.image}

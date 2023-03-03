@@ -26,6 +26,19 @@ const Home = () => {
 
   return (
     <section id='home' className='container'>
+      <p style={{ marginBottom: '1rem' }}>
+        <strong>NOTE:</strong> This app is still in development stage. Feel free to click around,
+        though some features may not work properly yet. You can read more about this app here
+        &#8211;{' '}
+        <a
+          style={{ color: '#999', textDecoration: 'underline' }}
+          href='https://eugeneilin.dev/experience/3/'
+        >
+          https://eugeneilin.dev/experience/3/
+        </a>
+        .
+      </p>
+
       <div>
         {documents.map((dish, i) => {
           return (

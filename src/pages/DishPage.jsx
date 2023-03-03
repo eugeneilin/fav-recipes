@@ -1,17 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { CollectionList } from '../helpers/CollectionList';
+import { collectionList } from '../helpers/collectionList';
 import '../styles/DishPage.css';
 
 const DishPage = () => {
   const { id } = useParams();
-  const dish = CollectionList[id];
+  const dish = collectionList[id];
 
-  let displayIngredients = dish.ingredients.map((ingredient) => {
+  const displayIngredients = dish.ingredients.map((ingredient) => {
     return <li>{ingredient}</li>;
   });
 
-  let displayDirections = dish.directions.map((directionsStep) => {
+  const displayDirections = dish.directions.map((directionsStep) => {
     return <li>{directionsStep}</li>;
   });
 

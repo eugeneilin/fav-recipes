@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../firebase/firebase';
 import '../styles/AddDish.css';
 import MainInfo from '../components/add-new/MainInfo';
 import Ingredients from '../components/add-new/Ingredients';
@@ -33,6 +35,29 @@ const AddDish = () => {
     } else if (page === 4) {
       return <Added formData={formData} />;
     }
+  };
+
+  const sendToFirebase = async () => {
+    console.log(formData);
+
+    const data = {
+      dishName: formData.dishName,
+      dishCategory: formData.dishCategory,
+      dishImage:
+        'https://images.pexels.com/photos/139746/pexels-photo-139746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      dishPplToServe: formData.dishPplToServe,
+      dishIngredients: formData.dishIngredients,
+      dishMinToPrep: formData.dishMinToPrep,
+      dishDirections: formData.dishDirections,
+    };
+
+    const newRecipe = await addDoc(collection(db, 'recipes'), data);
+    if (newRecipe) {
+      console.log('Document written with ID: ', newRecipe.id);
+    } else {
+      console.log('Something went wrong!!');
+    }
+    console.log('the sendToFirebase function was just fired');
   };
 
   return (
@@ -73,7 +98,7 @@ const AddDish = () => {
             <button
               onClick={() => {
                 if (page === 3) {
-                  console.log('post to api');
+                  sendToFirebase();
                   setPage((current) => current + 1);
                 } else {
                   setPage((current) => current + 1);

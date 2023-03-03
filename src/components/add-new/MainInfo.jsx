@@ -28,7 +28,9 @@ const MainInfo = ({ formData, setFormData }) => {
       </div>
       <div className='form-group'>
         <label htmlFor='upload'>Upload image</label>
-        <button id='upload'>Choose file...</button>
+        <button id='upload' name='dishImage'>
+          Choose file...
+        </button>
       </div>
     </div>
   );

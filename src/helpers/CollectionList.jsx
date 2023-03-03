@@ -3,7 +3,7 @@ import salad from '../assets/salad.jpeg';
 import cake from '../assets/cake.jpeg';
 import fruitSalad from '../assets/fruit-salad.jpeg';
 
-export const CollectionList = [
+export const collectionList = [
   {
     name: 'Pizza',
     category: 'Lunch',
